@@ -58,7 +58,7 @@
       </li><!-- End Profile Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{route('leads.index')}}">
-          <i class="bi bi-people-fill"></i>
+          <i class="bi bi-bookmark-check"></i>
           <span>Leads</span>
         </a>
       </li><!-- End Profile Page Nav -->

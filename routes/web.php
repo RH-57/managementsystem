@@ -25,4 +25,6 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('/components', ComponentController::class);
     Route::resource('/customers', CustomerController::class);
     Route::resource('/leads', LeadController::class);
+    Route::get('/leads/file/delete/{file}', [LeadController::class, 'deleteFile'])
+    ->name('lead.deleteFile');
 });

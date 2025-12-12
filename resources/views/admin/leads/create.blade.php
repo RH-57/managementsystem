@@ -67,12 +67,45 @@
             <!-- Customer -->
             <div class="mb-3">
                 <label class="form-label">Customer</label>
-                <select class="form-select" name="customer_id" required>
+                <select class="form-select" name="customer_id" id="customerSelect" required>
                     <option value="">-- Select Customer --</option>
                     @foreach($customers as $cus)
-                        <option value="{{ $cus->id }}">{{ $cus->name }}</option>
+                        <option value="{{ $cus->id }}"
+                            data-name="{{ $cus->name }}"
+                            data-company="{{ $cus->company }}"
+                            data-phone="{{ $cus->phone }}"
+                            data-email="{{ $cus->email }}">
+                            {{ $cus->name }}
+                        </option>
                     @endforeach
                 </select>
+                <div id="customerDetail" class="p-3 mt-3 border rounded bg-light" style="display:none;">
+
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Name</label>
+                            <input type="text" id="detail_name" class="form-control" disabled>
+                        </div>
+
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Company Name</label>
+                            <input type="text" id="detail_company" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Phone</label>
+                            <input type="text" id="detail_phone" class="form-control" disabled>
+                        </div>
+
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Email</label>
+                            <input type="text" id="detail_email" class="form-control" disabled>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
             <!-- Title -->
@@ -144,6 +177,24 @@
   <!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script>
+    document.getElementById('customerSelect').addEventListener('change', function() {
+        const selected = this.options[this.selectedIndex];
+
+        if (!this.value) {
+            document.getElementById("customerDetail").style.display = "none";
+            return;
+        }
+
+        document.getElementById("detail_name").value = selected.dataset.name || '';
+        document.getElementById("detail_company").value = selected.dataset.company || '';
+        document.getElementById("detail_phone").value = selected.dataset.phone || '';
+        document.getElementById("detail_email").value = selected.dataset.email || '';
+
+        document.getElementById("customerDetail").style.display = "block";
+    });
+    </script>
 
   <script>
     let index = 1;

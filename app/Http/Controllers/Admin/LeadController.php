@@ -146,11 +146,17 @@ class LeadController extends Controller
         /**
          * UPDATE OR CREATE ITEMS
          */
+        if ($request->deleted_items) {
+            $toDelete = json_decode($request->deleted_items, true);
+
+            LeadItem::whereIn('id', $toDelete)->delete();
+        }
+
+        // UPDATE OR CREATE ITEMS
         if ($request->items) {
             foreach ($request->items as $item) {
 
                 if (isset($item['id'])) {
-                    // update item
                     LeadItem::where('id', $item['id'])->update([
                         'item_name' => $item['item_name'],
                         'qty'       => $item['qty'],
@@ -158,7 +164,6 @@ class LeadController extends Controller
                     ]);
 
                 } else {
-                    // create new item
                     LeadItem::create([
                         'lead_id'   => $lead->id,
                         'item_name' => $item['item_name'],
@@ -213,4 +218,18 @@ class LeadController extends Controller
 
         return redirect()->back()->with('success', 'Lead deleted successfully!');
     }
+
+    public function deleteFile(LeadFile $file)
+    {
+        // Hapus dari storage
+        if (Storage::exists($file->path)) {
+            Storage::delete($file->path);
+        }
+
+        // Hapus dari database
+        $file->delete();
+
+        return back()->with('success', 'File deleted successfully');
+    }
+
 }

@@ -3,7 +3,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{route('dashboards.index')}}" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">LiraDigi.</span>
+        <span class="d-none d-lg-block">Business System</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->

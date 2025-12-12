@@ -64,50 +64,52 @@
                     </a>
                 </div>
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Code</th>
-                            <th>Customer</th>
-                            <th>Title</th>
-                            <th>Total Items</th>
-                            <th>Created</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Customer</th>
+                                <th>Title</th>
+                                <th>Total Items</th>
+                                <th>Created</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        @foreach($leads as $lead)
-                        <tr>
-                            <td>{{ $lead->code }}</td>
-                            <td>{{ $lead->customer->name }}</td>
-                            <td>{{ $lead->title ?? '-' }}</td>
-                            <td>{{ $lead->items->count() }}</td>
-                            <td>{{ $lead->created_at->format('d M Y') }}</td>
+                        <tbody>
+                            @foreach($leads as $lead)
+                            <tr>
+                                <td>{{ $lead->code }}</td>
+                                <td>{{ $lead->customer->name }}</td>
+                                <td>{{ $lead->title ?? '-' }}</td>
+                                <td>{{ $lead->items->count() }}</td>
+                                <td>{{ $lead->created_at->format('d M Y') }}</td>
 
-                            <td>
-                                <a href="{{ route('leads.show', $lead->id) }}" class="btn btn-sm btn-info">
-                                    <i class="bi bi-eye"></i>
-                                </a>
+                                <td>
+                                    <a href="{{ route('leads.show', $lead->id) }}" class="btn btn-sm btn-info">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
 
-                                <a href="{{ route('leads.edit', $lead->id) }}" class="btn btn-sm btn-warning">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
+                                    <a href="{{ route('leads.edit', $lead->id) }}" class="btn btn-sm btn-warning">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
 
-                                <form action="{{ route('leads.destroy', $lead->id) }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button onclick="return confirm('Delete this lead?')"
-                                        class="btn btn-sm btn-danger">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
+                                    <form action="{{ route('leads.destroy', $lead->id) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button onclick="return confirm('Delete this lead?')"
+                                            class="btn btn-sm btn-danger">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
 
-                </table>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
