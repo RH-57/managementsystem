@@ -60,15 +60,15 @@
               <div class="card info-card sales-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Services </h5>
+                  <h5 class="card-title">Leads</h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-check"></i>
+                      <i class="bi bi-bullseye"></i>
                     </div>
                     <div class="ps-3">
-                      <h6></h6>
-                      <span class="text-muted small pt-2 ps-1">Done</span>
+                      <h6>{{$leads}}</h6>
+                      <span class="text-muted small pt-2 ps-1">Total Leads</span>
 
                     </div>
                   </div>
@@ -82,15 +82,15 @@
               <div class="card info-card revenue-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Packages</h5>
+                  <h5 class="card-title">Quotation</h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
+                      <i class="bi bi-file-earmark-arrow-up-fill"></i>
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-muted small pt-2 ps-1">Package</span>
+                      <span class="text-muted small pt-2 ps-1">Total Quotation</span>
 
                     </div>
                   </div>
@@ -102,7 +102,7 @@
               <div class="card info-card revenue-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Articles</h5>
+                  <h5 class="card-title">On Production</h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -110,7 +110,7 @@
                     </div>
                     <div class="ps-3">
                       <h6></h6>
-                      <span class="text-muted small pt-2 ps-1">Published</span>
+                      <span class="text-muted small pt-2 ps-1">Leads</span>
 
                     </div>
                   </div>
@@ -137,7 +137,7 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
+                  <h5 class="card-title">Chart</h5>
 
                   <!-- Line Chart -->
                   <div id="visitorChart"></div>
